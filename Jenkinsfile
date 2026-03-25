@@ -127,7 +127,8 @@ pipeline {
             steps {
 
                 sh '''
-                docker rm -f netflix-app || true
+                docker rm -f netflix-app || true 
+		docker rm -f netflix || true
 
                 docker run -d \
                 --name netflix-app \
