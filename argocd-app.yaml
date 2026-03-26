@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: netflix-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/AyaanKhan1576/Netflix-DevSecOps'
+    targetRevision: HEAD
+    path: Kubernetes/app
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
